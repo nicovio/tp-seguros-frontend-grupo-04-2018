@@ -1,0 +1,91 @@
+<div class="titulo"><strong>Seguros Existentes </strong></div>
+<div>
+
+
+  <mdb-card class="polizas-card">
+    <div class="busqueda">
+      <form class="form-inline mr-auto">
+        <input class="form-control mr-sm-2 textbox-de-filtro" type="text" placeholder="Buscar por ID, estado o tipo"
+          aria-label="Buscar" name="buscar" [(ngModel)]="textoBusqueda" (focus)="desseleccionarPoliza()">
+        <i (click)="borrarBusqueda()" class="material-icons">
+          close
+        </i>
+        <!-- <button class="btn blue-gradient btn-rounded btn-sm my-0" type="submit">Buscar</button> -->
+      </form>
+    </div>
+    <div class="table-responsive  texto-centrado">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Fecha inicio</th>
+            <th>Fecha fin</th>
+            <th>Comision (en %)</th>
+            <th>Estado</th>
+            <th>Prima (en pesos)</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let poliza of polizas | filtrarSeguros: textoBusqueda;  let i = index">
+          <tr class="fila-poliza" (click)="setPoliza(poliza)" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+            <td>{{ poliza.id }} </td>
+            <td>{{ poliza.fecha_inicio }}</td>
+            <td>{{ poliza.fecha_fin }}</td>
+            <td>{{ poliza.porcentaje_de_comision }} </td>
+            <td>{{ poliza.estado.descripcion }}</td>
+            <td>{{ poliza.prima }}</td>
+            <td>{{ poliza.tipo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mdb-card>
+
+  <div class="centrado">
+    <button type="button" mdbBtn color="primary" class="relative waves-light" [disabled]="noPuedeCambiarEstado()"
+      (click)="frame.show()" mdbWavesEffect>Cambiar estado</button>
+  </div>
+</div>
+
+<div mdbModal #frame="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true" (keydown.esc)="frame.hide()" [config]="{ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Cambiar estado</h4>
+      </div>
+      <div class="modal-body container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field *ngIf="polizaSeleccionada" class="example-full-width">
+              <input [ngClass]="{'greenText': enCurso(), 'yellowText': suspendido()}" matInput placeholder="Estado actual"
+                value={{polizaSeleccionada.estado.descripcion}} [disabled]='true'>
+            </mat-form-field>
+            <div>
+              <mat-form-field>
+                <mat-select placeholder="Cambiar estado" [(ngModel)]="estadoSeleccionado" disableRipple>
+                  <mat-option *ngFor="let estado of estados" [value]='estado'>
+                    {{estado.descripcion}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <button type="button" mdbBtn color="primary" class="waves-light" (click)="aceptar()" [disabled]="selecionaEstadoActual()"
+                id="aceptar" mdbWavesEffect>Aceptar</button>
+              <button type="button" mdbBtn color="danger" class="relative waves-light" aria-label="Close" (click)="frame.hide()"
+                mdbWavesEffect>Cancelar</button>
+            </div>
+            <div class="alert alert-danger margen" *ngIf="selecionaEstadoActual()">
+              <strong> Debe cambiar a un estado nuevo</strong>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>

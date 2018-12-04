@@ -1,0 +1,71 @@
+.texto-centrado {
+    text-align: center;
+}
+
+thead {
+    background-color: #cdffd8;
+}
+
+th {
+    font-weight: bold;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.polizas-card {
+    max-width: 80rem;
+    margin: auto;
+}
+
+.fila-poliza:hover {
+    cursor: pointer;
+    background: #DDDDDD;
+}
+
+.table tr.active td {
+    background-color: #39CCCC !important;
+    color: white;
+}
+
+.centrado {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.busqueda {
+    margin: 1rem;
+}
+
+.textbox-de-filtro {
+    width: 14rem;
+}
+
+.material-icons {
+    cursor: pointer;
+    color: red;
+}
+
+::ng-deep .cdk-overlay-container {
+    z-index: 1200;
+}
+
+.margen {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.greenText {
+    color: #2ECC40;
+    font-weight: bold;
+}
+
+.yellowText {
+    color: #0070ff;
+    font-weight: bold;
+}

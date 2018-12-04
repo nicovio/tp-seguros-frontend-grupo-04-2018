@@ -1,0 +1,32 @@
+.navbar {
+    color: white;
+    background-color: #34a95f;
+    max-width: 120rem;
+}
+
+.nav-link {
+    color: white;
+}
+
+.titulo {
+    color: white;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    margin-left: 0.2rem;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: text-top;
+    padding-bottom: 0.3em;
+}
+
+.waves-light {
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.waves-light:hover {
+    background-color: #001fff4d !important;
+}
