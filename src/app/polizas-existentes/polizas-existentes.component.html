@@ -63,7 +63,7 @@
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field *ngIf="polizaSeleccionada" class="example-full-width">
-              <input [ngClass]="{'greenText': enCurso(), 'yellowText': suspendido()}" matInput placeholder="Estado actual"
+              <input [ngClass]="{'greenText': enCurso(), 'redText': suspendido()}" matInput placeholder="Estado actual"
                 value={{polizaSeleccionada.estado.descripcion}} [disabled]='true'>
             </mat-form-field>
             <div>
