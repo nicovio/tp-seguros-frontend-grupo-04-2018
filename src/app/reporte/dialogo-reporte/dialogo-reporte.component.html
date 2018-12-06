@@ -8,16 +8,55 @@
       <div class="separador-horizontal"></div>
       <div>
         <div>
-          Fecha Desde: {{data.fechaDesde}}
+          Fecha Desde: {{data.fechaDesde.toLocaleDateString()}}
         </div>
         <div>
-          Fecha Hasta: {{data.fechaHasta}}
+          Fecha Hasta: {{data.fechaHasta.toLocaleDateString()}}
         </div>
       </div>
     </div>
     <mat-divider></mat-divider>
     <div class="reporte">
+      <div>
+        <div class="encabezado-tabla">
+          <div class="tipo">Tipo</div><div class="estado">Estado</div><div class="cantidad">Cantidad</div><div class="valor">Valor Prima</div>
+        </div>
+        <div class="fila-tipo-seguro" *ngFor="let linea of lineas">
+          <div class="tipo">
+            {{linea.tipo}}
+          </div>
+          <div class="estado">
+            <div>En Curso</div>
+            <div>Suspendida</div>
+            <div>Anulada</div>
+            <div>Finalizada</div>
+            <div>Totales Parciales</div>
+          </div>
+          <div class="cantidad">
+            <div>{{linea.en_curso.cantidad || '--'}}</div>
+            <div>{{linea.suspendida.cantidad || '--'}}</div>
+            <div>{{linea.anulada.cantidad || '--'}}</div>
+            <div>{{linea.finalizada.cantidad || '--'}}</div>
+            <div>{{linea.cantidad_total || '--'}}</div>
+          </div>
+          <div class="valor">
+            <div>{{linea.en_curso.valor || '--'}}</div>
+            <div>{{linea.suspendida.valor || '--'}}</div>
+            <div>{{linea.anulada.valor || '--'}}</div>
+            <div>{{linea.finalizada.valor || '--'}}</div>
+            <div>{{linea.valor_total || '--'}}</div>
+          </div>
+        </div>
+        <!-- <div class="fila-tipo-seguro">
 
+        </div>
+        <div class="fila-tipo-seguro">
+
+        </div>
+        <div class="fila-tipo-seguro">
+
+        </div> -->
+      </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions class="actions">

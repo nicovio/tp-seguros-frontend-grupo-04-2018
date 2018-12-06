@@ -1,7 +1,11 @@
-.centrado-chiquito {
+@mixin flex-centrado() {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.centrado-chiquito {
+    @include flex-centrado()
 }
 
 .centrado-grande {
@@ -10,10 +14,44 @@
 .encabezado {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1rem;
 }
 
 .separador-horizontal {
-    flex: 1
+    flex: auto
+}
+
+.reporte {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    .encabezado-tabla {
+        @include flex-centrado();
+        flex-direction: row;
+    }
+    
+    .fila-tipo-seguro {
+        @include flex-centrado();
+        flex-direction: row;
+    }
+
+    .tipo {
+        width: 200px;   
+    }
+
+    .estado {
+        width: 200px;
+    }
+
+    .cantidad {
+        width: 200px;
+        text-align: right;
+    }
+
+    .valor {
+        width: 200px;
+        text-align: right;
+    }
 }
 
 .actions {
