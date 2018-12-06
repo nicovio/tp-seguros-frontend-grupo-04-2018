@@ -76,7 +76,14 @@ export class PolizasExistentesComponent implements OnInit {
 
   suspendido() {
     return this.estadoPolizaSeleccionada() === 'Suspendido';
+  }
 
+  anulado() {
+    return this.estadoPolizaSeleccionada() === 'Anulado';
+  }
+
+  finalizado() {
+    return this.estadoPolizaSeleccionada() === 'Finalizado';
   }
 
   async aceptar() {

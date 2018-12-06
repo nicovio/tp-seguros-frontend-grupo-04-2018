@@ -23,6 +23,7 @@ th {
     margin: auto;
     color: white;
     background-color: #393f4d;
+
     // background-color: #83d0c9;
     // background-color: #393f4d
     // background-color: #13deff;
@@ -80,6 +81,16 @@ th {
 
 .redText {
     color: red;
+    font-weight: bold;
+}
+
+.yellowText {
+    color:  #ffc425;
+    font-weight: bold;
+}
+
+.blueText {
+    color: #005b96;
     font-weight: bold;
 }
 
