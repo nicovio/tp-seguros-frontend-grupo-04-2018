@@ -2,7 +2,7 @@
 <div>
 
 
-  <div  class="card polizas-card">
+  <div class="card polizas-card">
     <div class="busqueda">
       <form class="form-inline mr-auto">
         <input class="form-control mr-sm-2 textbox-de-filtro" type="text" placeholder="Buscar por ID, estado o tipo"
@@ -45,7 +45,7 @@
 
   <div class="centrado">
     <button type="button" mdbBtn color="primary" class="relative waves-light" [disabled]="noPuedeCambiarEstado()"
-      (click)="frame.show()" mdbWavesEffect>Cambiar estado</button>
+      (click)="frame.show()" (click)="prepararModal()" mdbWavesEffect>Cambiar estado</button>
   </div>
 </div>
 
@@ -82,13 +82,10 @@
       </div>
       <div class="centro">
         <div>
-          <button type="button" mdbBtn color="primary" class="waves-light boton" (click)="aceptar()" [disabled]="selecionaEstadoActual()"
+          <button type="button" mdbBtn color="primary" class="waves-light boton" (click)="aceptar()" [disabled]="noSeleccionoNuevoEstado()"
             id="aceptar" mdbWavesEffect>Aceptar</button>
           <button type="button" mdbBtn color="danger" class="relative waves-light boton" aria-label="Close" (click)="frame.hide()"
             mdbWavesEffect>Cancelar</button>
-        </div>
-        <div class="alert alert-danger margen" *ngIf="selecionaEstadoActual()">
-          <strong> Debe cambiar a un estado nuevo</strong>
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ export class PolizasExistentesComponent implements OnInit {
   constructor(private polizasService: PolizasService, private estadosService: EstadosService, private router: Router) {
     try {
       this.estadoSeleccionado = new Estado()
+      this.estadoSeleccionado.descripcion = "Cambiar estado"
       this.initialize()
     } catch (error) {
       this.errors.push(error._body)
@@ -33,10 +34,15 @@ export class PolizasExistentesComponent implements OnInit {
   async initialize() {
     try {
       this.polizas = await this.polizasService.getPolizas()
-      this.estados = await this.estadosService.getEstados()
     } catch (error) {
       mostrarError(this, error)
     }
+  }
+
+  async prepararModal() {
+    this.estadoSeleccionado = new Estado()
+    this.estadoSeleccionado.descripcion = "Cambiar estado"
+    this.estados = await this.estadosService.getEstados(this.polizaSeleccionada.estado.id)
   }
 
   setPoliza(poliza: Poliza) {
@@ -48,7 +54,7 @@ export class PolizasExistentesComponent implements OnInit {
   }
 
   noPuedeCambiarEstado() {
-    return this.selectedRow === undefined || this.estadoPolizaSeleccionada() === 'Anulado' || this.estadoPolizaSeleccionada() === 'Finalizado'
+    return this.selectedRow === undefined
   }
 
   borrarBusqueda() {
@@ -89,10 +95,9 @@ export class PolizasExistentesComponent implements OnInit {
 
 
 
-  selecionaEstadoActual() {
-    return this.estadoSeleccionado.descripcion === this.estadoPolizaSeleccionada() || this.estadoPolizaSeleccionada() === undefined
+  noSeleccionoNuevoEstado() {
+    return this.estadoSeleccionado.descripcion === "Cambiar estado"
   }
-
 
   ngOnInit() {
   }

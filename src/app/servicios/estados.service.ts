@@ -10,8 +10,8 @@ export class EstadosService {
 
   constructor(private http: Http) { }
 
-  async getEstados() {
-    const res = await this.http.get(REST_SERVER_URL + '/estados/').toPromise()
+  async getEstados(idEstado: Number) {
+    const res = await this.http.get(REST_SERVER_URL + '/estados/' + idEstado).toPromise()
     return res.json().map(Estado.fromJSON)
   }
 
