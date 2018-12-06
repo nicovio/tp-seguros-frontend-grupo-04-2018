@@ -20,6 +20,14 @@ export class ReporteComponent implements OnInit {
     Validators.max(99999999)
   ]);
 
+  fechaDesdeControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  fechaHastaControl = new FormControl('', [
+    Validators.required,
+  ]);
+
   constructor(public dialog: MatDialog) {
     this.parametrosReporte = new ParametrosReporte()
   }
@@ -28,7 +36,11 @@ export class ReporteComponent implements OnInit {
   }
 
   tieneErrores() {
-    return this.dniAgenteFormControl.errors !== null
+    return this.dniAgenteFormControl.errors !== null || this.fechaDesdeControl.errors !== null || this.fechaHastaControl.errors !== null || this.fechaDesdePosteriorAHasta()
+  }
+
+  fechaDesdePosteriorAHasta() {
+    return this.parametrosReporte.fechaDesde >= this.parametrosReporte.fechaHasta
   }
 
   mostrarReporte() {

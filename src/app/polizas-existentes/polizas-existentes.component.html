@@ -2,7 +2,7 @@
 <div>
 
 
-  <mdb-card class="polizas-card">
+  <div  class="card polizas-card">
     <div class="busqueda">
       <form class="form-inline mr-auto">
         <input class="form-control mr-sm-2 textbox-de-filtro" type="text" placeholder="Buscar por ID, estado o tipo"
@@ -17,7 +17,7 @@
 
       <table class="table">
         <thead>
-          <tr>
+          <tr class="negro">
             <th>Id</th>
             <th>Fecha inicio</th>
             <th>Fecha fin</th>
@@ -41,7 +41,7 @@
         </tbody>
       </table>
     </div>
-  </mdb-card>
+  </div>
 
   <div class="centrado">
     <button type="button" mdbBtn color="primary" class="relative waves-light" [disabled]="noPuedeCambiarEstado()"
@@ -49,7 +49,7 @@
   </div>
 </div>
 
-<div mdbModal #frame="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+<div mdbModal #frame="mdbModal" class="modal fade cambioEstado" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
   aria-hidden="true" (keydown.esc)="frame.hide()" [config]="{ignoreBackdropClick: true}">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -75,17 +75,20 @@
                 </mat-select>
               </mat-form-field>
             </div>
-            <div>
-              <button type="button" mdbBtn color="primary" class="waves-light" (click)="aceptar()" [disabled]="selecionaEstadoActual()"
-                id="aceptar" mdbWavesEffect>Aceptar</button>
-              <button type="button" mdbBtn color="danger" class="relative waves-light" aria-label="Close" (click)="frame.hide()"
-                mdbWavesEffect>Cancelar</button>
-            </div>
-            <div class="alert alert-danger margen" *ngIf="selecionaEstadoActual()">
-              <strong> Debe cambiar a un estado nuevo</strong>
-            </div>
+
 
           </div>
+        </div>
+      </div>
+      <div class="centro">
+        <div>
+          <button type="button" mdbBtn color="primary" class="waves-light boton" (click)="aceptar()" [disabled]="selecionaEstadoActual()"
+            id="aceptar" mdbWavesEffect>Aceptar</button>
+          <button type="button" mdbBtn color="danger" class="relative waves-light boton" aria-label="Close" (click)="frame.hide()"
+            mdbWavesEffect>Cancelar</button>
+        </div>
+        <div class="alert alert-danger margen" *ngIf="selecionaEstadoActual()">
+          <strong> Debe cambiar a un estado nuevo</strong>
         </div>
       </div>
     </div>

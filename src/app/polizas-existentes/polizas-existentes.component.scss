@@ -21,15 +21,28 @@ th {
 .polizas-card {
     max-width: 80rem;
     margin: auto;
+    color: white;
+    background-color: #393f4d;
+    // background-color: #83d0c9;
+    // background-color: #393f4d
+    // background-color: #13deff;
+    // background-color: #6497b1;
+    // background-color: #70adcc;
+    // background-color: #4fc4ff;
+}
+
+.negro {
+    background-color: black;
 }
 
 .fila-poliza:hover {
     cursor: pointer;
     background: #DDDDDD;
+    color: black;
 }
 
 .table tr.active td {
-    background-color: #39CCCC !important;
+    background-color: #3d1e6d;
     color: white;
 }
 
@@ -68,4 +81,17 @@ th {
 .redText {
     color: red;
     font-weight: bold;
+}
+
+.cambioEstado {
+    max-width: 18rem;
+    margin: auto;
+}
+
+.boton {
+    font-size: 0.7rem !important;
+}
+
+.centro {
+    margin: 1rem;
 }

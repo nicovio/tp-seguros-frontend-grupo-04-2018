@@ -9,7 +9,7 @@ import { PolizasExistentesComponent } from './polizas-existentes/polizas-existen
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FiltrarSegurosPipe } from './pipes/filtrar-seguros.pipe';
-import { MatInputModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule, MatProgressSpinnerModule, MatButtonModule, MatDividerModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule, MatProgressSpinnerModule, MatButtonModule, MatDividerModule, MAT_DATE_LOCALE } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RefrescarPantallaComponent } from './refrescar-pantalla/refrescar-pantalla.component';
 import { ReporteComponent } from './reporte/reporte.component';
@@ -46,7 +46,8 @@ import { HttpClientModule }    from '@angular/common/http';
       MDBBootstrapModule.forRoot()
    ],
    entryComponents: [DialogoReporteComponent],
-   providers: [],
+   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+],
    bootstrap: [
       AppComponent
    ]
