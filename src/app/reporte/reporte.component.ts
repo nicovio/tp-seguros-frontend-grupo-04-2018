@@ -34,7 +34,7 @@ export class ReporteComponent implements OnInit {
   mostrarReporte() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = this.parametrosReporte;
-    dialogConfig.maxHeight = '500px';
+    dialogConfig.maxHeight = '2000px';
     dialogConfig.maxWidth = '1000px';
 
     const dialogRef = this.dialog.open(DialogoReporteComponent, dialogConfig);

@@ -8,9 +8,6 @@
     @include flex-centrado()
 }
 
-.centrado-grande {
-}
-
 .encabezado {
     display: flex;
     flex-direction: row;
@@ -28,11 +25,33 @@
     .encabezado-tabla {
         @include flex-centrado();
         flex-direction: row;
+        font-size: 1.5rem;
+        margin: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,.12);
     }
     
     .fila-tipo-seguro {
         @include flex-centrado();
         flex-direction: row;
+        border-right: 1px solid rgba(0,0,0,.12);
+        border-left: 1px solid rgba(0,0,0,.12);
+        border-bottom: 1px solid rgba(0,0,0,.12);
+        .total-parcial {
+            border-top: 1px solid rgba(0, 0, 0, 0.068);
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+    }
+
+    .totales {
+        @include flex-centrado();
+        flex-direction: row;
+        font-size: 1.3rem;
+        border-right: 1px solid rgba(0,0,0,.12);
+        border-left: 1px solid rgba(0,0,0,.12);
+        border-bottom: 1px solid rgba(0,0,0,.12);
     }
 
     .tipo {
@@ -41,18 +60,33 @@
 
     .estado {
         width: 200px;
+        border-left: 1px solid rgba(0,0,0,.12);
+        padding-left: 1rem;
+        border-right: 1px solid rgba(0,0,0,.12);
+        padding-right: 2rem;
+    }
+
+    .tipo-estado{
+        width: 400px;
+        border-right: 1px solid rgba(0,0,0,.12);
+        padding-right: 2rem;
     }
 
     .cantidad {
         width: 200px;
         text-align: right;
+        border-right: 1px solid rgba(0,0,0,.12);
+        padding-right: 1rem;
+        margin-left: 1rem;
     }
 
     .valor {
         width: 200px;
         text-align: right;
+        margin-left: 1rem;
     }
 }
+
 
 .actions {
     display: flex;

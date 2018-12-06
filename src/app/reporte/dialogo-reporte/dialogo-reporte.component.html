@@ -1,4 +1,4 @@
-<div [ngClass]="{'centrado-grande': true}">
+<div [ngClass]="{'centrado-grande': true}" *ngIf="!cargando">
   <h2 mat-dialog-title>Informe estadístico</h2>
   <mat-dialog-content>
     <div class="encabezado">
@@ -27,35 +27,31 @@
           </div>
           <div class="estado">
             <div>En Curso</div>
-            <div>Suspendida</div>
-            <div>Anulada</div>
-            <div>Finalizada</div>
-            <div>Totales Parciales</div>
+            <div>Suspendidos</div>
+            <div>Anulados</div>
+            <div>Finalizados</div>
+            <div class="total-parcial">Totales Parciales</div>
           </div>
           <div class="cantidad">
             <div>{{linea.en_curso.cantidad || '--'}}</div>
-            <div>{{linea.suspendida.cantidad || '--'}}</div>
-            <div>{{linea.anulada.cantidad || '--'}}</div>
-            <div>{{linea.finalizada.cantidad || '--'}}</div>
-            <div>{{linea.cantidad_total || '--'}}</div>
+            <div>{{linea.suspendido.cantidad || '--'}}</div>
+            <div>{{linea.anulado.cantidad || '--'}}</div>
+            <div>{{linea.finalizado.cantidad || '--'}}</div>
+            <div class="total-parcial">{{linea.cantidad_total || '--'}}</div>
           </div>
           <div class="valor">
             <div>{{linea.en_curso.valor || '--'}}</div>
-            <div>{{linea.suspendida.valor || '--'}}</div>
-            <div>{{linea.anulada.valor || '--'}}</div>
-            <div>{{linea.finalizada.valor || '--'}}</div>
-            <div>{{linea.valor_total || '--'}}</div>
+            <div>{{linea.suspendido.valor || '--'}}</div>
+            <div>{{linea.anulado.valor || '--'}}</div>
+            <div>{{linea.finalizado.valor || '--'}}</div>
+            <div class="total-parcial">{{linea.valor_total || '--'}}</div>
           </div>
         </div>
-        <!-- <div class="fila-tipo-seguro">
-
+        <div class="totales">
+          <div class="tipo-estado">Totales Generales</div>
+          <div class="cantidad">{{mapa.totales.cantidad}}</div>
+          <div class="valor">{{mapa.totales.valor}}</div>
         </div>
-        <div class="fila-tipo-seguro">
-
-        </div>
-        <div class="fila-tipo-seguro">
-
-        </div> -->
       </div>
     </div>
   </mat-dialog-content>
@@ -63,6 +59,6 @@
     <button mat-button [mat-dialog-close]="true">Cerrar</button>
   </mat-dialog-actions>
 </div>
-<!-- <div *ngIf="cargando" [ngClass]="{'centrado-chiquito': cargando}">
-  <mat-spinner></mat-spinner>
-</div> -->
+<div *ngIf="cargando" [ngClass]="{'centrado-chiquito': cargando}">
+  <mat-spinner color="primary"></mat-spinner>
+</div>

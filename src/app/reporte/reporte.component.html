@@ -1,7 +1,7 @@
 <mdb-card class="parametros-reporte">
   <div>
     <mat-form-field class="margen">
-      <input class="margen-holder" matInput type="text" min=1 max="99999999" [(ngModel)]="parametrosReporte.dniAgente"
+      <input name="dni-agente" class="margen-holder" matInput type="text" min=1 max="99999999" [(ngModel)]="parametrosReporte.dniAgente"
         placeholder="DNI Agente" [formControl]="dniAgenteFormControl" [errorStateMatcher]="matcher">
       <mat-error>
         <strong>
@@ -11,13 +11,13 @@
     </mat-form-field>
 
     <mat-form-field class="margen">
-      <input matInput [(ngModel)]="parametrosReporte.fechaDesde" [matDatepicker]="desde" placeholder="Fecha desde">
+      <input matInput name="fecha-desde" [(ngModel)]="parametrosReporte.fechaDesde" [matDatepicker]="desde" placeholder="Fecha desde">
       <mat-datepicker-toggle matSuffix [for]="desde"></mat-datepicker-toggle>
       <mat-datepicker #desde></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="margen">
-      <input matInput [(ngModel)]="parametrosReporte.fechaHasta " [matDatepicker]="hasta" placeholder="Fecha hasta">
+      <input matInput name="fecha-hasta" [(ngModel)]="parametrosReporte.fechaHasta " [matDatepicker]="hasta" placeholder="Fecha hasta">
       <mat-datepicker-toggle matSuffix [for]="hasta"></mat-datepicker-toggle>
       <mat-datepicker #hasta></mat-datepicker>
     </mat-form-field>
