@@ -11,13 +11,13 @@
     </mat-form-field>
 
     <mat-form-field class="margen">
-      <input matInput [matDatepicker]="desde" placeholder="Fecha desde">
+      <input matInput [(ngModel)]="parametrosReporte.fechaDesde" [matDatepicker]="desde" placeholder="Fecha desde">
       <mat-datepicker-toggle matSuffix [for]="desde"></mat-datepicker-toggle>
       <mat-datepicker #desde></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="margen">
-      <input matInput [matDatepicker]="hasta" placeholder="Fecha hasta">
+      <input matInput [(ngModel)]="parametrosReporte.fechaHasta " [matDatepicker]="hasta" placeholder="Fecha hasta">
       <mat-datepicker-toggle matSuffix [for]="hasta"></mat-datepicker-toggle>
       <mat-datepicker #hasta></mat-datepicker>
     </mat-form-field>
