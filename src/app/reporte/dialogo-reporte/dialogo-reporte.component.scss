@@ -1,0 +1,22 @@
+.centrado-chiquito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centrado-grande {
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: row;
+}
+
+.separador-horizontal {
+    flex: 1
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}

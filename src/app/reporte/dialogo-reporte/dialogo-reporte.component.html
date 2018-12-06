@@ -1,0 +1,29 @@
+<div [ngClass]="{'centrado-grande': true}">
+  <h2 mat-dialog-title>Informe estadístico</h2>
+  <mat-dialog-content>
+    <div class="encabezado">
+      <div>
+        Agente: {{data.dniAgente}}
+      </div>
+      <div class="separador-horizontal"></div>
+      <div>
+        <div>
+          Fecha Desde: {{data.fechaDesde}}
+        </div>
+        <div>
+          Fecha Hasta: {{data.fechaHasta}}
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="reporte">
+
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="actions">
+    <button mat-button [mat-dialog-close]="true">Cerrar</button>
+  </mat-dialog-actions>
+</div>
+<!-- <div *ngIf="cargando" [ngClass]="{'centrado-chiquito': cargando}">
+  <mat-spinner></mat-spinner>
+</div> -->

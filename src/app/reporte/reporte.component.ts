@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import ParametrosReporte from '../domain/ParametrosReporte';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { DialogoReporteComponent } from './dialogo-reporte/dialogo-reporte.component';
 
 @Component({
   selector: 'reporte',
@@ -18,7 +20,7 @@ export class ReporteComponent implements OnInit {
     Validators.max(99999999)
   ]);
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.parametrosReporte = new ParametrosReporte()
   }
 
@@ -29,4 +31,16 @@ export class ReporteComponent implements OnInit {
     return this.dniAgenteFormControl.errors !== null
   }
 
+  mostrarReporte() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = this.parametrosReporte;
+    dialogConfig.maxHeight = '500px';
+    dialogConfig.maxWidth = '1000px';
+
+    const dialogRef = this.dialog.open(DialogoReporteComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

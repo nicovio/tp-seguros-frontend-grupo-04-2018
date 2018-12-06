@@ -2,6 +2,8 @@ export default class Reporte {
 
     tipo: String;
 
+    id_estado: number;
+
     estado: String;
 
     cantidad: number;

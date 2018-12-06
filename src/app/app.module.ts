@@ -9,12 +9,12 @@ import { PolizasExistentesComponent } from './polizas-existentes/polizas-existen
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FiltrarSegurosPipe } from './pipes/filtrar-seguros.pipe';
-import { MatInputModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule, MatProgressSpinnerModule, MatButtonModule, MatDividerModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RefrescarPantallaComponent } from './refrescar-pantalla/refrescar-pantalla.component';
 import { ReporteComponent } from './reporte/reporte.component';
-
-
+import { DialogoReporteComponent } from './reporte/dialogo-reporte/dialogo-reporte.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -23,12 +23,14 @@ import { ReporteComponent } from './reporte/reporte.component';
       PolizasExistentesComponent,
       FiltrarSegurosPipe,
       RefrescarPantallaComponent,
-      ReporteComponent
+      ReporteComponent,
+      DialogoReporteComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       HttpModule,
+      HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
       MatInputModule,
@@ -37,8 +39,13 @@ import { ReporteComponent } from './reporte/reporte.component';
       MatSelectModule,
       MatDatepickerModule,
       MatNativeDateModule,
+      MatDialogModule,
+      MatButtonModule,
+      MatDividerModule,
+      MatProgressSpinnerModule,
       MDBBootstrapModule.forRoot()
    ],
+   entryComponents: [DialogoReporteComponent],
    providers: [],
    bootstrap: [
       AppComponent

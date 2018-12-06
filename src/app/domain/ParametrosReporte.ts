@@ -1,6 +1,6 @@
 export default class ParametrosReporte {
 
-    dniAgente: String;
+    dniAgente: string;
 
     fechaDesde: Date;
 
