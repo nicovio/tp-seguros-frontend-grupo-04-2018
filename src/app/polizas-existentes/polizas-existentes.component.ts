@@ -4,7 +4,7 @@ import { PolizasService } from '../servicios/polizas.service';
 import { mostrarError } from '../errorHandler/ErrorHandler';
 import Estado from '../domain/Estado';
 import { EstadosService } from '../servicios/estados.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'polizas-existentes',
@@ -21,8 +21,12 @@ export class PolizasExistentesComponent implements OnInit {
   estadoSeleccionado: Estado
   estados: Array<Estado>
 
-  constructor(private polizasService: PolizasService, private estadosService: EstadosService, private router: Router) {
+  constructor(private polizasService: PolizasService, private estadosService: EstadosService, 
+    private router: Router, private activatedRoute: ActivatedRoute) {
     try {
+      this.activatedRoute.params.subscribe(params => {
+        this.textoBusqueda = params.filtro || ''
+      })
       this.estadoSeleccionado = new Estado()
       this.estadoSeleccionado.descripcion = "Cambiar estado"
       this.initialize()
