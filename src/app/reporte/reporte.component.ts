@@ -40,7 +40,7 @@ export class ReporteComponent implements OnInit {
   }
 
   fechaDesdePosteriorAHasta() {
-    return this.parametrosReporte.fechaDesde >= this.parametrosReporte.fechaHasta
+    return this.parametrosReporte.fechaDesde > this.parametrosReporte.fechaHasta
   }
 
   mostrarReporte() {
