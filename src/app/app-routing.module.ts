@@ -5,9 +5,9 @@ import { RefrescarPantallaComponent } from './refrescar-pantalla/refrescar-panta
 import { ReporteComponent } from './reporte/reporte.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'polizas-existentes', pathMatch: 'full' },
+  { path: '', redirectTo: 'polizas-existentes/todas', pathMatch: 'full' },
 
-  { path: 'polizas-existentes', component: PolizasExistentesComponent },
+  { path: 'polizas-existentes/:tipo', component: PolizasExistentesComponent },
   { path: 'refrescar-pantalla', component: RefrescarPantallaComponent },
   { path: 'reporte', component: ReporteComponent }
 

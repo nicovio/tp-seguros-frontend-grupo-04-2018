@@ -4,27 +4,27 @@
     <a class="material-icons">
       security
     </a>
-    <a class="titulo" routerLink="polizas-existentes">Seguros</a>
+    <a class="titulo" [routerLink]="['/polizas-existentes', 'todas']">Seguros</a>
   </div>
 
   <div class="navbar-nav-scroll">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link active" mdbBtn color="white" outline="true" size="sm" class="align-middle waves-light"
-          mdbWavesEffect type="button" [routerLink]="['/polizas-existentes', {filtro: 'vida'}]">SEGUROS DE VIDA</a>
+          mdbWavesEffect type="button" [routerLink]="['/polizas-existentes', 'vida']">SEGUROS DE VIDA</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" mdbBtn color="white" outline="true" size="sm" class="align-middle waves-light"
-          mdbWavesEffect type="button" [routerLink]="['/polizas-existentes', {filtro: 'hogar'}]">SEGUROS DE VIVIENDA</a>
+          mdbWavesEffect type="button" [routerLink]="['/polizas-existentes', 'hogar']">SEGUROS DE VIVIENDA</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" mdbBtn color="white" outline="true" size="sm" class="align-middle waves-light"
-          mdbWavesEffect type="button" [routerLink]="['/polizas-existentes', {filtro: 'automovil'}]">SEGUROS DE AUTOMOVIL</a>
+          mdbWavesEffect type="button" [routerLink]="['/polizas-existentes', 'automovil']">SEGUROS DE AUTOMOVIL</a>
       </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="reporte" mdbBtn color="white" outline="true" size="sm" class="align-middle waves-light"
-            mdbWavesEffect type="button">REPORTE</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="reporte" mdbBtn color="white" outline="true" size="sm" class="align-middle waves-light"
+          mdbWavesEffect type="button">REPORTE</a>
+      </li>
     </ul>
   </div>
 </nav>

@@ -17,19 +17,21 @@ export class PolizasExistentesComponent implements OnInit {
   errors = []
   polizaSeleccionada: Poliza = new Poliza()
   selectedRow: Number;
+  tipo: String = ''
   textoBusqueda: String = ''
   estadoSeleccionado: Estado
   estados: Array<Estado>
 
-  constructor(private polizasService: PolizasService, private estadosService: EstadosService, 
+  constructor(private polizasService: PolizasService, private estadosService: EstadosService,
     private router: Router, private activatedRoute: ActivatedRoute) {
     try {
-      this.activatedRoute.params.subscribe(params => {
-        this.textoBusqueda = params.filtro || ''
-      })
       this.estadoSeleccionado = new Estado()
       this.estadoSeleccionado.descripcion = "Cambiar estado"
-      this.initialize()
+      this.activatedRoute.params.subscribe(params => {
+        this.tipo = params['tipo']
+        this.initialize()
+      })
+
     } catch (error) {
       this.errors.push(error._body)
     }
@@ -37,10 +39,22 @@ export class PolizasExistentesComponent implements OnInit {
 
   async initialize() {
     try {
-      this.polizas = await this.polizasService.getPolizas()
+      if (this.tipo === "todas") {
+        this.polizas = await this.polizasService.getPolizas()
+      }
+      if (this.tipo === "vida") {
+        this.polizas = await this.polizasService.getPolizasVida()
+      }
+      if (this.tipo === "hogar") {
+        this.polizas = await this.polizasService.getPolizasHogar()
+      }
+      if (this.tipo === "automovil") {
+        this.polizas = await this.polizasService.getPolizasAutomovil()
+      }
     } catch (error) {
       mostrarError(this, error)
     }
+
   }
 
   async prepararModal() {
@@ -62,8 +76,8 @@ export class PolizasExistentesComponent implements OnInit {
   }
 
   borrarBusqueda() {
-    this.desseleccionarPoliza()
     this.textoBusqueda = ''
+    this.desseleccionarPoliza()
   }
 
   desseleccionarPoliza() {
@@ -101,7 +115,7 @@ export class PolizasExistentesComponent implements OnInit {
 
   resfrescarPantalla() {
     this.router.navigateByUrl('/refrescar-pantalla', { skipLocationChange: true }).then(() =>
-      this.router.navigate(["/polizas-existentes"]));
+      this.router.navigate(["/polizas-existentes/" + this.tipo]));
   }
 
 
