@@ -11,18 +11,18 @@ export class ReporteService {
 
   constructor(private http: HttpClient) { }
 
-  getReportePorAgente(parametros: ParametrosReporte){
+  getReportePorAgente(parametros: ParametrosReporte) {
     let params = new HttpParams()
-      .set('fechaDesde', this.getFormattedDate(parametros.fechaDesde))
-      .set('fechaHasta', this.getFormattedDate(parametros.fechaHasta))
+      .set('fechaDesde', parametros.fechaDesde.toDateString())
+      .set('fechaHasta', parametros.fechaHasta.toDateString())
       .set('dniAgente', parametros.dniAgente);
-    return this.http.get<LineaReporte[]>(`${REST_SERVER_URL}/polizas/reporte`, {params}).toPromise()
-    .then(lineas => {
-      return lineas.map(linea => LineaReporte.fromJSON(linea))
-    })
+    return this.http.get<LineaReporte[]>(`${REST_SERVER_URL}/polizas/reporte`, { params }).toPromise()
+      .then(lineas => {
+        return lineas.map(linea => LineaReporte.fromJSON(linea))
+      })
   }
 
-  getFormattedDate(date: Date){
-    return `${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`
-  }
+  // getFormattedDate(date: Date) {
+  //   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+  // }
 }
